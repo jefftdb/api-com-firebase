@@ -56,17 +56,5 @@ def excluir_livro(id):
     
     return 'Deletado com sucesso!'
 
-#--------------------------------------------------------------------//-----------------------------------------------------------
 
-livros_online = requests.get('https://github.com/jefftdb/api-com-firebase/blob/main/livros_online.json')
-@app.route("/livros_online", methods =["GET"])
-def obter_livros_online():
-    return livros_online.json()
 
-@app.route("/livros_online", methods =["POST"])
-def incluir_novo_livros_online():
-    data = request.get_data()    
-
-    requisicao = requests.post("https://github.com/jefftdb/api-com-firebase/blob/main/livros_online.json",data = data)
-
-    return requisicao.json()
