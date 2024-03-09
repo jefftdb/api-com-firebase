@@ -55,3 +55,7 @@ def excluir_livro(id):
     requisicao = requests.delete("https://meu-projeto-7ccc7.firebaseio.com/"+ id +".json")
     
     return 'Deletado com sucesso!'
+
+#--------------------------------------------------------------------//-----------------------------------------------------------
+
+
