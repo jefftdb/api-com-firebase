@@ -54,7 +54,7 @@ def incluir_novo_livro():
 def excluir_livro(id):
     requisicao = requests.delete("https://meu-projeto-7ccc7.firebaseio.com/"+ id +".json")
     
-    return 'Deletado com sucesso!'
+    return 'Deletado com sucesso!' 
 
 
 
