@@ -3,7 +3,6 @@ import requests
 
 app = Flask(__name__)
 
-livros = requests.get("https://meu-projeto-7ccc7.firebaseio.com/.json")
 
 """[
     {
@@ -26,12 +25,15 @@ livros = requests.get("https://meu-projeto-7ccc7.firebaseio.com/.json")
 #Obter todos
 @app.route("/livros", methods =["GET"])
 def obter_livros():
+    livros = requests.get("https://meu-projeto-7ccc7.firebaseio.com/.json")
+
     return livros.json()
 
 #Obter livro utilizando o id
 @app.route("/livros/<string:id>", methods =["GET"])
 def obter_livro_por_id(id):
-                
+    livros = requests.get("https://meu-projeto-7ccc7.firebaseio.com/"+ id +".json")
+
     return livros.json()[id]
 
 #Editar o livro
@@ -44,9 +46,9 @@ def editar_livro_por_id(id):
 #Criar novo livro
 @app.route("/livros", methods =["POST"])
 def incluir_novo_livro():
-    data = request.get_data()    
+    data = request.get_json()    
 
-    requisicao = requests.post("https://meu-projeto-7ccc7.firebaseio.com/.json",data = data)
+    requisicao = requests.post("https://meu-projeto-7ccc7.firebaseio.com/.json",json = data)
 
     return requisicao.json()
 
