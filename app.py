@@ -34,7 +34,7 @@ def obter_livros():
 def obter_livro_por_id(id):
     livros = requests.get("https://meu-projeto-7ccc7.firebaseio.com/"+ id +".json")
 
-    return livros.json()[id]
+    return livros.json()
 
 #Editar o livro
 @app.route("/livros/<string:id>", methods =["PUT"])        
